@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: rgb(110, 172, 218);
+    }
+    .calculator {
+      width: 300px;
+      height: 400px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .key {
+      background-color: rgb(182, 255, 161);
+      border: none;
+      padding: 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .key:hover {
+      background-color: #59b35d;
+    }
+    #display {
+      width: 100%;
+      height: 40px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(132, 255, 32, 0.1);
+    }
+    .backspace {
+      grid-column: span 2;
+    }
+    .clear {
+      grid-column: span 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="keys">
+      <button class="key clear" id="clear">C</button>
+      <button class="key" id="divide">/</button>
+      <button class="key" id="seven">7</button>
+      <button class="key" id="eight">8</button>
+      <button class="key" id="nine">9</button>
+      <button class="key" id="multiply">*</button>
+      <button class="key" id="four">4</button>
+      <button class="key" id="five">5</button>
+      <button class="key" id="six">6</button>
+      <button class="key" id="subtract">-</button>
+      <button class="key" id="one">1</button>
+      <button class="key" id="two">2</button>
+      <button class="key" id="three">3</button>
+      <button class="key" id="add">+</button>
+      <button class="key" id="zero">0</button>
+      <button class="key" id="equals">=</button>
+      <button class="key backspace" id="backspace">DEL</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const keys = document.querySelectorAll('.key');
+  
+    let currentNumber = '';
+    let previousNumber = '';
+    let operation = '';
+  
+    function formatNumber(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Menggunakan titik sebagai pemisah ribuan
+    }
+  
+    keys.forEach(key => {
+      key.addEventListener('click', () => {
+        const keyValue = key.textContent;
+  
+        if (keyValue === 'C') {
+          currentNumber = '';
+          previousNumber = '';
+          operation = '';
+          display.value = '';
+        } else if (keyValue === 'DEL') {
+          currentNumber = currentNumber.slice(0, -1);
+          display.value = formatNumber(currentNumber); // Format saat menghapus
+        } else if (keyValue === '=') {
+          if (operation && currentNumber !== '') {
+            const num1 = parseFloat(previousNumber);
+            const num2 = parseFloat(currentNumber);
+            if (isNaN(num1) || isNaN(num2)) {
+              display.value = "Error";
+              return;
+            }
+  
+            switch (operation) {
+              case '+':
+                currentNumber = num1 + num2;
+                break;
+              case '-':
+                currentNumber = num1 - num2;
+                break;
+              case '*':
+                currentNumber = num1 * num2;
+                break;
+              case '/':
+                if (num2 === 0) {
+                  display.value = "Error";
+                  return;
+                }
+                currentNumber = num1 / num2;
+                break;
+              default:
+                break;
+            }
+  
+            display.value = formatNumber(currentNumber); // Format hasil
+            previousNumber = '';
+            operation = '';
+          }
+        } else if (['+', '-', '*', '/'].includes(keyValue)) {
+          if (currentNumber !== '') {
+            previousNumber = currentNumber;
+            operation = keyValue;
+            currentNumber = '';
+          }
+        } else {
+          currentNumber += keyValue;
+          display.value = formatNumber(currentNumber); // Format saat memasukkan angka
+        }
+      });
+    });
+  </script>
+</body>
+</html>
