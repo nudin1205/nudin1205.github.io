@@ -12,15 +12,26 @@
             font-family: 'Roboto', sans-serif;
         }
         .zoom {
-            transition: transform 0.2s; /* Durasi transisi */
+            transition: transform 0.2s;
         }
-
         .zoom:hover {
-            transform: scale(1.1); /* Zoom in saat hover */
+            transform: scale(1.05);
         }
-
         .zoom.active {
-            transform: scale(1.5); /* Zoom in saat aktif (diklik) */  
+            transform: scale(1.1);
+        }
+        .scrolling-wrapper {
+            overflow-x: auto;
+            white-space: nowrap; 
+            -webkit-overflow-scrolling: touch; 
+        }
+        .scrolling-wrapper::-webkit-scrollbar {
+            display: none; 
+        }
+        .scrolling-wrapper .card {
+            display: inline-block; 
+            width: 250px; 
+            margin-right: 1rem; 
         }
     </style>
 </head>
@@ -29,9 +40,9 @@
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold">Portofolio</h1>
         </div>
-        <div class="bg-yellow-500 p-6 rounded-lg shadow-lg mb-8">
-            <div class="flex items-center">
-                <img src="src/img/nudin.jpeg" class="rounded-full w-32 h-32 mr-6" height="150" width="150" />
+        <div class="bg-blue-500 p-6 rounded-lg shadow-lg mb-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <img src="src/img/nudin.jpeg" class="rounded-full w-32 h-32 mb-4 md:mb-0 md:mr-6" height="150" width="150" />
                 <div>
                     <h2 class="text-3xl font-bold">SATINUDI TELAUMBANUA</h2>
                     <p class="mt-2">WEB DEVELOPER</p>
@@ -45,11 +56,11 @@
         </div>
         <div class="mb-8">
             <h3 class="text-2xl font-bold mb-4">Social Media</h3>
-            <div class="flex space-x-4">
+            <div class="flex justify-center space-x-4">
                 <a href="https://www.facebook.com" target="_blank">
                     <img alt="Facebook logo" class="w-12 h-12" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" />
                 </a>
-                <a href="https://www.instagram.com" target="_blank">
+                <a href="https://www.instagram.com/nudin_12/profilecard/?igsh=eXNkd2tmYWpmZWZo" target="_blank">
                     <img alt="Instagram logo" class="w-12 h-12" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" />
                 </a>
             </div>
@@ -57,23 +68,21 @@
 
         <div>
             <h3 class="text-2xl font-bold mb-4">My Projects</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="mb-4">
-                    <a href="form.html" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+            <div class="scrolling-wrapper">
+                <div class="card">
+                    <a href="form.html" class="block bg-blue-500 p-4 rounded-lg shadow-lg">
                         <img id="formImg" src="src/img/pro1.PNG" class="w-full h-48 object-cover rounded-lg mb-4 zoom" />
                         <h4 class="text-lg font-bold">FORM LOGIN</h4>
                     </a>
                 </div>
-                
-                <div class="mb-4">
-                    <a href="kalkulator.html" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                <div class="card">
+                    <a href="kalkulator.html" class="block bg-blue-500 p-4 rounded-lg shadow-lg">
                         <img id="calcImg" src="src/img/pro2.PNG" class="w-full h-48 object-cover rounded-lg mb-4 zoom" />
                         <h4 class="text-lg font-bold">KALKULATOR</h4>
                     </a>
                 </div>
-                
-                <div class="mb-4">
-                    <a href="dasbor.html" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                <div class="card">
+                    <a href="dasbor.html" class="block bg-blue-500 p-4 rounded-lg shadow-lg">
                         <img id="adminImg" src="src/img/pro3.PNG" class="w-full h-48 object-cover rounded-lg mb-4 zoom" />
                         <h4 class="text-lg font-bold">ADMIN DASHBOARD</h4>
                     </a>
@@ -84,30 +93,27 @@
         <!-- Sertifikat Section -->
         <div class="mb-8">
             <h3 class="text-2xl font-bold mb-4">Sertifikat</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="mb-4">
-                    <a href="https://api2.sololearn.com/v2/certificates/CC-HQ0BYCWP/image/png" target="_blank" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+            <div class="scrolling-wrapper">
+                <div class="card">
+                    <a href="https://api2.sololearn.com/v2/certificates/CC-HQ0BYCWP/image/png" target="_blank" class="block bg-blue-500 p-4 rounded-lg shadow-lg">
                         <img src="src/img/HTML.jpeg" class="w-full h-48 object-cover rounded-lg mb-4 zoom" alt="HTML Certificate" />
                         <h4 class="text-lg font-bold">HTML</h4>
                     </a>
                 </div>
-                
-                <div class="mb-4">
-                    <a href="https://api2.sololearn.com/v2/certificates/CC-XF77WVFA/image/png" target="_blank" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                <div class="card">
+                    <a href="https://api2.sololearn.com/v2/certificates/CC-XF77WVFA/image/png" target="_blank" class="block bg-blue-500 p-4 rounded-lg shadow-lg">
                         <img src="src/img/CSS.jpeg" class="w-full h-48 object-cover rounded-lg mb-4 zoom" alt="CSS Certificate" />
                         <h4 class="text-lg font-bold">CSS</h4>
                     </a>
                 </div>
-                
-                <div class="mb-4">
-                    <a href="https://api2.sololearn.com/v2/certificates/CC-YOUR_CERTIFICATE_ID/image/png" target="_blank" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                <div class="card">
+                    <a href="https://api2.sololearn.com/v2/certificates/CC-YOUR_CERTIFICATE_ID/image/png" target="_blank" class="block bg-blue-500 p-4 rounded-lg shadow-lg">
                         <img src="src/img/certificate3.jpg" class="w-full h-48 object-cover rounded-lg mb-4 zoom" alt="JavaScript Certificate" />
                         <h4 class="text-lg font-bold">JAVASCRIPT</h4>
                     </a>
                 </div>
             </div>
         </div>
-        
     </div>
 </body>
 </html>

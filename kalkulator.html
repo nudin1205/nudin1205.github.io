@@ -89,7 +89,7 @@
     let operation = '';
   
     function formatNumber(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Menggunakan titik sebagai pemisah ribuan
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); 
     }
   
     keys.forEach(key => {
@@ -103,7 +103,7 @@
           display.value = '';
         } else if (keyValue === 'DEL') {
           currentNumber = currentNumber.slice(0, -1);
-          display.value = formatNumber(currentNumber); // Format saat menghapus
+          display.value = formatNumber(currentNumber); 
         } else if (keyValue === '=') {
           if (operation && currentNumber !== '') {
             const num1 = parseFloat(previousNumber);
@@ -134,7 +134,7 @@
                 break;
             }
   
-            display.value = formatNumber(currentNumber); // Format hasil
+            display.value = formatNumber(currentNumber); 
             previousNumber = '';
             operation = '';
           }
@@ -146,7 +146,7 @@
           }
         } else {
           currentNumber += keyValue;
-          display.value = formatNumber(currentNumber); // Format saat memasukkan angka
+          display.value = formatNumber(currentNumber); 
         }
       });
     });
