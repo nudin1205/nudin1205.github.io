@@ -3,110 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Saya</title>
-    <link rel="icon" href="src/img/kudi.jpg" type="image/x-icon">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
         }
-        header {
-            background: #35424a;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+        .zoom {
+            transition: transform 0.2s; /* Durasi transisi */
         }
-        nav {
-            margin: 20px 0;
+
+        .zoom:hover {
+            transform: scale(1.1); /* Zoom in saat hover */
         }
-        nav a {
-            margin: 0 15px;
-            color: white;
-            text-decoration: none;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        section {
-            margin: 20px 0;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-        }
-        img.profile {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 10px 0;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #35424a;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+
+        .zoom.active {
+            transform: scale(1.5); /* Zoom in saat aktif (diklik) */  
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto p-4">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold">Portofolio</h1>
+        </div>
+        <div class="bg-yellow-500 p-6 rounded-lg shadow-lg mb-8">
+            <div class="flex items-center">
+                <img src="src/img/nudin.jpeg" class="rounded-full w-32 h-32 mr-6" height="150" width="150" />
+                <div>
+                    <h2 class="text-3xl font-bold">SATINUDI TELAUMBANUA</h2>
+                    <p class="mt-2">WEB DEVELOPER</p>
+                    <p class="mt-4">Dalam hidup, jangan seperti virus yang selalu menyerang kelemahan orang lain, Jadilah seperti AntiVirus kuat yang selalu melindungi setiap serangan virus yang merugikan.</p>
+                    <div class="mt-4">
+                        <p>Email: silimabanua1205@gmail.com</p>
+                        <p>Phone: +123 456 7890</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-4">Social Media</h3>
+            <div class="flex space-x-4">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img alt="Facebook logo" class="w-12 h-12" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" />
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img alt="Instagram logo" class="w-12 h-12" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" />
+                </a>
+            </div>
+        </div>
 
-<header>
-    <h1>Portfolio Saya</h1>
-    <nav>
-        <a href="#tentang">Tentang</a>
-        <a href="#riwayat">Riwayat Pendidikan</a>
-        <a href="#Project">Project</a>
-    </nav>
-</header>
-
-<div class="container">
-    <section id="tentang">
-        <h2>Tentang Saya</h2>
-        <img src="src/img/nudin.jpeg" alt="Foto Profil" class="profile">
-        <p>Halo! Nama saya SATINUDI TELAUMBANUA. Saya seorang mahasiswa di UNIVERSITAS PAMULANG.</p>
-    </section>
-
-    <section id="riwayat">
-        <h2>Riwayat Pendidikan</h2>
-        <ul>
-            <li>
-                <h3>SD</h3>
-                <p>DI SD NEGERI 120324, KEC. TUHEMBERUA, KEB.NIAS UTARA </p> 
+        <div>
+            <h3 class="text-2xl font-bold mb-4">My Projects</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="mb-4">
+                    <a href="form.html" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                        <img id="formImg" src="src/img/pro1.PNG" class="w-full h-48 object-cover rounded-lg mb-4 zoom" />
+                        <h4 class="text-lg font-bold">FORM LOGIN</h4>
+                    </a>
+                </div>
                 
-            </li>
-            <li>
-                <h3>SMP</h3>
-                <p>DI SMP NEGERI 1 TUHEMBERUA, KEC. TUHEMBERUA, KEB. NIAS UTARA</p>
+                <div class="mb-4">
+                    <a href="kalkulator.html" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                        <img id="calcImg" src="src/img/pro2.PNG" class="w-full h-48 object-cover rounded-lg mb-4 zoom" />
+                        <h4 class="text-lg font-bold">KALKULATOR</h4>
+                    </a>
+                </div>
                 
-            </li>
-            <li>
-                <h3>SMA</h3>
-                <p>DI SMA NEGERI 1 TUHEMBERUA, KEC. TUHEMBERUA, KEB. NIAS UTARA</p>
+                <div class="mb-4">
+                    <a href="dasbor.html" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                        <img id="adminImg" src="src/img/pro3.PNG" class="w-full h-48 object-cover rounded-lg mb-4 zoom" />
+                        <h4 class="text-lg font-bold">ADMIN DASHBOARD</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sertifikat Section -->
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-4">Sertifikat</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="mb-4">
+                    <a href="https://api2.sololearn.com/v2/certificates/CC-HQ0BYCWP/image/png" target="_blank" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                        <img src="src/img/HTML.jpeg" class="w-full h-48 object-cover rounded-lg mb-4 zoom" alt="HTML Certificate" />
+                        <h4 class="text-lg font-bold">HTML</h4>
+                    </a>
+                </div>
                 
-            </li>
-        </ul>
-    </section>
-
-    <section id="Project">
-        <h2>Project </h2>
-        <p>
-            <a href="form.html">MEMBUAT FORM LOGIN</a>
-        </p>
-        <p>
-            <a href="kalkulator.html">MEMBUAT KALULATOR</a>
-        </p>
-    </section>
-</div>
-
-<footer>
-    <p>&copy; 2024 Telaumbanua. Semua Hak Dilindungi.</p>
-</footer>
-
+                <div class="mb-4">
+                    <a href="https://api2.sololearn.com/v2/certificates/CC-XF77WVFA/image/png" target="_blank" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                        <img src="src/img/CSS.jpeg" class="w-full h-48 object-cover rounded-lg mb-4 zoom" alt="CSS Certificate" />
+                        <h4 class="text-lg font-bold">CSS</h4>
+                    </a>
+                </div>
+                
+                <div class="mb-4">
+                    <a href="https://api2.sololearn.com/v2/certificates/CC-YOUR_CERTIFICATE_ID/image/png" target="_blank" class="block bg-yellow-500 p-4 rounded-lg shadow-lg">
+                        <img src="src/img/certificate3.jpg" class="w-full h-48 object-cover rounded-lg mb-4 zoom" alt="JavaScript Certificate" />
+                        <h4 class="text-lg font-bold">JAVASCRIPT</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </body>
 </html>
